@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SafeWalk — You're Not Alone</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="manifest" href="/static/manifest.json">
+<meta name="theme-color" content="#7ed6df">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🕊️ SafeWalk</h1>
+      <p class="tagline">You're not alone. We’re walking with you.</p>
+    </header>
+
+    <main>
+      <div class="button-group">
+        <button onclick="startTracking()" class="track-btn">Start My Walk 🚶‍♀️</button>
+        <button onclick="sendSOS()" class="sos-btn">Send SOS 🚨</button>
+      </div>
+
+      <div id="map" class="map-box"></div>
+      <div id="risk-alert" class="risk-box"></div>
+    </main>
+
+    <footer>
+      <p class="footnote">💡Tip: You can leave the app open in your pocket while you walk. It has your back.</p>
+    </footer>
+  </div>
+
+  <script src="/static/main.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/static/sw.js')
+      .then(() => console.log('✅ Service Worker registered!'));
+  }
+</script>
+
+</body>
+</html>
+
